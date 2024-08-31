@@ -1,4 +1,4 @@
-
+// This file stores a record of all the moneys we will use
 public class Denomination {
 
     public record Denominations(String name, double amount, String form, String img) { }
