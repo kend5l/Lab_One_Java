@@ -2,26 +2,45 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.KeyListener;
+
 
 public class RegisterPanel extends JPanel {
-    private JTextField textField;
+
+    private JTextField input;
+    private Register register;
+    private PursePanel changePanel;
 
     public RegisterPanel() {
+
+        register = new Register();
+
         this.setPreferredSize(new Dimension(800, 700));
 
-        textField = new JTextField();
-        textField.setPreferredSize(new Dimension(300, 200));
-        textField.setFont(new Font("sansserif", Font.PLAIN, 40));
-        textField.addActionListener(new InputListener() {});
+        JPanel inputPanel = new JPanel();
+        input = new JTextField();
+        input.setPreferredSize(new Dimension(300, 100));
+        input.setFont(new Font("sansserif", Font.PLAIN, 40));
+        input.addActionListener(new InputListener() {});
+        inputPanel.add(new JLabel("Enter Amount:"));
+        inputPanel.add(input);
 
-        this.add(textField);
+        changePanel = new PursePanel();
+
+        this.add(inputPanel);
+        this.add(changePanel);
+
 
 
     }
 
-    private static class InputListener implements ActionListener {
+    private class InputListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
+
+            String text = input.getText();
+            double amount = Double.parseDouble(text);
+            Purse purse = Register.makeChange(amount);
+
+
 
         }
     }
