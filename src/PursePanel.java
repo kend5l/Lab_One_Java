@@ -1,5 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
+import java.util.HashMap;
+import java.util.Map;
 
 public class PursePanel extends JPanel {
 
@@ -15,5 +17,28 @@ public class PursePanel extends JPanel {
         //ImageIcon img = new ImageIcon("Images/penny.png");
         //label.setIcon(img);
 
+    }
+
+    public void setPurse(Purse p) {
+        this.purse = p;
+
+    }
+
+    //@Override
+    public void paintComponent(Graphics g) {
+        super.paintComponent(g);
+        System.out.println("YOOO");
+
+        for (Map.Entry<DenominationList.Denominations, Integer> cash : purse.cash.entrySet()) {
+            for(int i = 0; i < cash.getValue(); i++) {
+                ImageIcon icon = new ImageIcon(cash.getKey().img());
+                Image img = icon.getImage();
+                Image scaledImg = img.getScaledInstance(50, 50, Image.SCALE_SMOOTH);
+                ImageIcon scaledIcon = new ImageIcon(scaledImg);
+
+                JLabel label = new JLabel(scaledIcon);
+                this.add(label);
+            }
+        }
     }
 }

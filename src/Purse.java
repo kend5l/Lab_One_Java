@@ -6,7 +6,7 @@ import java.util.Map;
 
 public class Purse {
     // cash map
-    private final Map<DenominationList.Denominations, Integer> cash;
+    public Map<DenominationList.Denominations, Integer> cash;
     // Constructor
     public Purse() {
         cash = new HashMap<>();

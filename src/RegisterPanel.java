@@ -39,6 +39,8 @@ public class RegisterPanel extends JPanel {
             String text = input.getText();
             double amount = Double.parseDouble(text);
             Purse purse = Register.makeChange(amount);
+            System.out.println(purse);
+            changePanel.setPurse(purse);
 
 
 
