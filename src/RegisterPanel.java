@@ -34,11 +34,14 @@ public class RegisterPanel extends JPanel {
     }
 
     private class InputListener implements ActionListener {
+
         public void actionPerformed(ActionEvent e) {
 
             String text = input.getText();
             double amount = Double.parseDouble(text);
             Purse purse = Register.makeChange(amount);
+            System.out.println(purse);
+            changePanel.setPurse(purse);
 
 
 
