@@ -1,12 +1,12 @@
-import java.util.Scanner;
+// This is our register file. Most of the program will run off this.
 
+import java.util.Scanner;
 
 public class Register {
 
-
     // method responsible for calculation
         public static Purse makeChange(double amount) {
-
+            // create purse
             Purse purse = new Purse();
 
             // convert dollars to cents
@@ -81,18 +81,21 @@ public class Register {
                 purse.add(DenominationList.penny, pennies);
             }
 
+
             return purse;
         }
         // main method
         public static void main(String[] args) {
+            // creates scanner and ask for user input
             Scanner sc = new Scanner(System.in);
             System.out.print("Enter an amount in dollars (Ex: 4.56): ");
             double amount = sc.nextDouble();
+
             // method call
             Purse purse = makeChange(amount);
             System.out.println("Change Given: ");
             System.out.println(purse.toString());
-            sc.close();
+
         }
 }
 

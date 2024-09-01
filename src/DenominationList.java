@@ -1,4 +1,5 @@
 // This file stores a record of all the moneys we will use
+// records include name, amount, type, and image name for GUI
 public class DenominationList {
 
         public record Denominations(String name, double amount, String form, String img) {}
