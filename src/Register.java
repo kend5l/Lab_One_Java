@@ -1,5 +1,5 @@
-// This is our register file. Most of the program will run off this.
-
+// Register file
+// This file contains a function to calculate the amount of change as well as command line ui
 import java.util.Scanner;
 
 public class Register {

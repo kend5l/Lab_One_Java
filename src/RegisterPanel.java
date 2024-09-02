@@ -1,3 +1,4 @@
+// This file is responsible for adding a textbox to the gui as well as calling images
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -9,9 +10,10 @@ public class RegisterPanel extends JPanel {
     private JTextField input;
     private Register register;
     private PursePanel changePanel;
+    private JFrame holder;
 
-    public RegisterPanel() {
-
+    public RegisterPanel(JFrame holder) {
+        this.holder = holder;
         register = new Register();
 
         this.setPreferredSize(new Dimension(800, 700));
@@ -34,7 +36,6 @@ public class RegisterPanel extends JPanel {
     }
 
     private class InputListener implements ActionListener {
-
         public void actionPerformed(ActionEvent e) {
 
             String text = input.getText();
@@ -42,7 +43,9 @@ public class RegisterPanel extends JPanel {
             Purse purse = Register.makeChange(amount);
             System.out.println(purse);
             changePanel.setPurse(purse);
-
+            changePanel.setDisplayContents();
+            changePanel.displayResetLabel.setText("");
+            holder.setVisible(true);
 
 
         }

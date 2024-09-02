@@ -1,5 +1,4 @@
-// This is our purse file. This is where we store our purse class and methods
-// to add and compute the money stored inside it
+// This file contains all of the methods we will use to manipulate the purse (add, remove, get value, tostring)
 
 import java.util.HashMap;
 import java.util.Map;
